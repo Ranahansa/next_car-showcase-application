@@ -22,7 +22,7 @@ const Navbar = () => {
                 <Button
                     title="Sign In"
                     btnType="button"
-                    containerStyles="text-black font-bold rounded-lg bg-white border-2 border-black min-w-[80px] h-9 flex justify-center items-center"
+                    containerStyles="text-black font-bold rounded-lg bg-gray-200 min-w-[80px] h-8 flex justify-center items-center"
                 />
             </nav>
         </header>
