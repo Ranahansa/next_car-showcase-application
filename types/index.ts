@@ -8,3 +8,12 @@ export interface ButtonProps {
     MouseEventHandler<HTMLButtonElement>;
     btnType?: "button" | "submit" | "reset" | undefined;
 }
+
+export interface IntrinsicAttributes {
+    title: string;
+}
+
+export interface SearchManufacturerProps {
+    manufacturer: string;
+    setManufacturer: (manufacturer: string) => void;
+}
