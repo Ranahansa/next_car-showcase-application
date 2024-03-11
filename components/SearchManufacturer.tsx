@@ -8,8 +8,8 @@ const SearchManufacturer = ({ manufacturer, setManufacturer }: SearchManufacture
 
     const [query, setQuery] = useState('')
     const filteredManufacturers = query === '' ? manufacturers : manufacturers.filter((item) => (
-        item.toLowerCase().replace(/\s/g, '')
-        .includes(query.toLowerCase().replace(/\s/g, ''))
+        item.toLowerCase().replace(/\s+/g, '')
+        .includes(query.toLowerCase().replace(/\s+/g, ''))
     ))
 
     return (
@@ -40,6 +40,9 @@ const SearchManufacturer = ({ manufacturer, setManufacturer }: SearchManufacture
                         leaveTo="opacity-0"
                         afterLeave={() => setQuery('')}
                     >
+                        <Combobox.Options>
+                            
+                        </Combobox.Options>
                     </Transition>
                 </div>
             </Combobox>
