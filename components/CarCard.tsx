@@ -10,22 +10,12 @@ interface CarCardProps {
     car: CarProps;
 }
 
-interface HandleProps {
-    title: string;
-    onClick: () => void;
-    textStyle?: string;
-}
-
 const CarCard = ({ car }: CarCardProps) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const { city_mpg, year, make, model, transmission, drive } = car;
 
     const carRent = calculateCarRent(city_mpg, year);
-
-    const handleClick = ({ onClick }: HandleProps) => {
-        onClick();
-    };
 
     return (
         <div className='car-card group'>
@@ -61,7 +51,7 @@ const CarCard = ({ car }: CarCardProps) => {
                 <div className='car-card__btn-container'>
                     <button
                         className='w-full py-[16px] rounded-full bg-primary-blue text-white text-[14px] font-bold'
-                        onClick={() => setIsOpen(true)}
+                        onClick={() => setIsOpen(true)} // Fixed here
                     >
                         View More
                     </button>
