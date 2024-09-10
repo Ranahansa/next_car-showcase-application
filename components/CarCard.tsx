@@ -1,7 +1,7 @@
 "use client";
 
 import { CarProps } from '@/types';
-import { calculateCarRent } from '@/utils';
+import { calculateCarRent, generateCarImageUrl } from '@/utils';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import CarDetails from './CarDetails';
@@ -30,7 +30,7 @@ const CarCard = ({ car }: CarCardProps) => {
                 <span className='self-end text-[14px] font-medium'>/day</span>
             </p>
             <div className='relative w-full h-40 my-3 object-contain'>
-                <Image src='/hero1.png' alt='car' fill priority className='object-contain' />
+                <Image src={generateCarImageUrl(car)} alt='car' fill priority className='object-contain' />
             </div>
 
             <div className='relative flex w-full mt-2'>
@@ -51,7 +51,7 @@ const CarCard = ({ car }: CarCardProps) => {
                 <div className='car-card__btn-container'>
                     <button
                         className='w-full py-[16px] rounded-full bg-primary-blue text-white text-[14px] font-bold'
-                        onClick={() => setIsOpen(true)} // Fixed here
+                        onClick={() => setIsOpen(true)} 
                     >
                         View More
                     </button>

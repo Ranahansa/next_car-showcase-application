@@ -7,6 +7,7 @@ const nextConfig = {
                 hostname: "static.vecteezy.com",
             },
         ],
+        domains: ["cdn.imagin.studio", "maps.gstatic.com"],
     },
 };
 
