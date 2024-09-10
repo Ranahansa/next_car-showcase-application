@@ -36,7 +36,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <Dialog.Panel className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white text-left shadow-xl transition-all flex flex-col gap-5">
+                            <Dialog.Panel className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white text-left shadow-2xl transition-all flex flex-col gap-5 p-6">
                                 <button
                                     className="absolute top-2 right-2 z-10 w-fit p-2 bg-primary-blue-100 rounded-full"
                                     type="button"
@@ -47,7 +47,7 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                                         alt="close"
                                         width={20}
                                         height={20}
-                                        className="absolute top-4 right-4"
+                                        className="absolute top-4 right-4 m-2 bg-white rounded-full p-1"
                                     />
                                 </button>
 
@@ -90,6 +90,26 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                                                 className="object-contain"
                                             />
                                         </div>
+                                    </div>
+                                </div>
+                                <div className="flex-1 flex flex-col gap-2">
+                                    <h2 className="font-semibold text-xl capitalize">
+                                        {car.make} {car.model}
+                                    </h2>
+                                    <div className='mt-3 flex flex-wrap gap-4'>
+                                      {Object.entries(car).map(([key, value]) => (
+                                        <div
+                                          className="flex justify-between gap-5 w-full text-right"
+                                          key={key}
+                                        >
+                                          <h4 className="text-gray-400 capitalize">
+                                            {key.split("_").join(" ")}
+                                          </h4>
+                                          <p className="text-black-400 font-semibold">
+                                            {value}
+                                          </p>
+                                        </div>
+                                      ))}
                                     </div>
                                 </div>
                             </Dialog.Panel>
