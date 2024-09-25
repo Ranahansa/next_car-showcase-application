@@ -98,19 +98,19 @@ const CarDetails = ({ isOpen, closeModal, car }: CarDetailsProps) => {
                                         {car.make} {car.model}
                                     </h2>
                                     <div className='mt-3 flex flex-wrap gap-4'>
-                                      {Object.entries(car).map(([key, value]) => (
-                                        <div
-                                          className="flex justify-between gap-5 w-full text-right"
-                                          key={key}
-                                        >
-                                          <h4 className="text-gray-400 capitalize">
-                                            {key.split("_").join(" ")}
-                                          </h4>
-                                          <p className="text-black-400 font-semibold">
-                                            {value}
-                                          </p>
-                                        </div>
-                                      ))}
+                                        {Object.entries(car).map(([key, value]) => (
+                                            <div
+                                                className="flex justify-between gap-5 w-full text-right"
+                                                key={key}
+                                            >
+                                                <h4 className="text-gray-400 capitalize">
+                                                    {key.split("_").join(" ")}
+                                                </h4>
+                                                <p className="text-black-400 font-semibold">
+                                                    {value}
+                                                </p>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             </Dialog.Panel>
