@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import SearchManufacturer from './SearchManufacturer'
 import Image from 'next/image'
+import { useRouter} from 'next/navigation'
 
 
 const SearchButton = ({otherClasses}: any) => (
@@ -20,9 +21,36 @@ const SearchBar = () => {
 
     const [manufacturer, setManufacturer] = useState('')
     const [model, setModel] = useState('')
+    const Router = useRouter()
 
-    const handleSearch = () => {
-        
+    const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+
+        if(manufacturer === '' && model === '')
+        {
+            return alert("please fill in the search bar")
+        }
+
+        updateSearchParams(model.toLowerCase(), manufacturer.toLowerCase())
+    }
+
+    const updateSearchParams = (model: string, manufacturer: string) => {
+        const searchParams = new URLSearchParams(window.location.search)
+
+        if(model){
+            searchParams.set('model', model)
+        } else {
+            searchParams.delete('model')
+        }
+        if(manufacturer){
+            searchParams.set('manufacturer', manufacturer)
+        } else {
+            searchParams.delete('manufacturer')
+        }
+
+        const newPathname = `${window.location.pathname}?${searchParams.toString()}`
+
+        Router.push(newPathname)
     }
 
     return (
@@ -50,7 +78,9 @@ const SearchBar = () => {
                     placeholder='Tiguan'
                     className='searchbar__input'
                 />
+                <SearchButton otherClasses="sm:hidden" />
             </div>
+            <SearchButton otherClasses="max-sm:hidden" />
         </form>
     )
 }
